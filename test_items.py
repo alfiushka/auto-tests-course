@@ -1,9 +1,11 @@
-link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
+import time
+link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 
 def test_check_cart_button(browser):
     browser.get(link)
-    button = browser.find_element_by_css_selector("button[class='btn.btn-lg.btn-primary.btn-add-tobasket']")
+    button = len(browser.find_elements_by_class_name("btn.btn-lg.btn-primary.btn-add-to-basket"))
     #button.click()
-    self.assertTrue(button!=None, "No such element")
-    time.sleep(10)
+    assert button > 0, "There is no such element"
+    time.sleep(30)
+    
